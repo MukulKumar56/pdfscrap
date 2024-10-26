@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Downloader</title>
+</head>
+<body>
+    <h1>Download PDF from Selfstudys</h1>
+    <p>{{ message }}</p>
+
+    <form method="POST">
+        <label for="url">Enter URL:</label>
+        <input type="text" id="url" name="url" value="{{ user_input }}" required>
+        <button type="submit">Fetch PDF</button>
+    </form>
+
+    {% if user_input %}
+        <h3>Your Input: {{ user_input }}</h3>
+    {% endif %}
+
+    {% if formatted_url %}
+        <h3>Extracted URL: {{ formatted_url }}</h3>
+    {% endif %}
+
+    {% if title %}
+        <h3>Title: {{ title }}</h3>
+    {% endif %}
+
+    {% if pdf_link %}
+        <h3>Source link: <a href="{{ pdf_link }}"> {{ pdf_link }}</a></h3>
+        <button><a href="{{ pdf_link }}" style="text-decoration: none; color: black;">Download</a></button>
+    {% elif user_input %}
+        <h3>No source link found.</h3>  <!-- Show this only after input -->
+    {% endif %}
+</body>
+</html>
+
+
+
+
+
+
+
